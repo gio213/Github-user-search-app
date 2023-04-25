@@ -379,6 +379,7 @@ input:focus {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  box-sizing: border-box;
 }
 .locationAddress {
   width: 85%;
@@ -571,24 +572,29 @@ input:focus {
   .lastDiv {
     flex-direction: row-reverse;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: space-between;
     width: 100%;
     height: 100%;
+    gap: 2%;
   }
   .locationAddress {
-    width: 40%;
+    width: 45%;
     height: 20%;
+    justify-content: center;
   }
   .githubBlog {
-    width: 40%;
+    width: 45%;
     height: 20%;
+    justify-content: center;
   }
   .twitter {
-    width: 40%;
+    width: 45%;
     height: 20%;
+    justify-content: center;
   }
   .company {
-    width: 40%;
+    width: 45%;
     height: 20%;
+    justify-content: center;
   }
 }
