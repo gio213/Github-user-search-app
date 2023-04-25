@@ -168,7 +168,7 @@ input:focus {
   align-items: center;
   background: #1e2a47;
   border-radius: 15px;
-
+  box-sizing: border-box;
   gap: 5%;
 }
 
