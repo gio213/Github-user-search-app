@@ -24,7 +24,6 @@ body {
   align-content: center;
   background-color: var(--dark2);
   box-sizing: border-box;
-  overflow: hidden;
   padding: 0 8% 10% 8%;
   gap: 3%;
 }
