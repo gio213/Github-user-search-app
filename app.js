@@ -1,4 +1,4 @@
-const input = document.querySelector("input"),
+const input = document.getElementById("searchInput"),
   searchBtn = document.querySelector(".inputDiv button"),
   profileImg = document.querySelector(".profileImg"),
   userName = document.querySelector(".uInfos  h1"),
@@ -16,12 +16,31 @@ const input = document.querySelector("input"),
   twitter = document.querySelector(".twitter h3"),
   tiwitterPath = document.getElementById("tiwitterPath"),
   company = document.querySelector(".company h1"),
-  companyPath = document.getElementById("companyPath");
+  companyPath = document.getElementById("companyPath"),
+  themeSwitchBtn = document.getElementById("themeChanger"),
+  themeName = document.querySelector(".colorChangeBtnTxt h1");
 let api = `https://api.github.com/users/`;
+
+const setTheme = (theme) => (document.documentElement.className = theme);
+
+themeSwitchBtn.addEventListener("change", function () {
+  if (themeSwitchBtn.checked) {
+    setTheme("dark");
+    console.log("checked");
+
+    themeName.innerHTML = "Dark";
+    console.log("light");
+  } else {
+    setTheme("light");
+    console.log("dark");
+    themeName.innerHTML = "Light";
+  }
+});
 
 let searched = input.addEventListener("input", function (e) {
   api = `https://api.github.com/users/${e.target.value}`;
   console.log(api);
+  console.log(e.target.value);
   return api;
 });
 async function getUser() {
@@ -59,7 +78,7 @@ async function renderData() {
   followers.innerHTML = `${userData.followers}`;
   following.innerHTML = `${userData.following}`;
   if (userData.location === null) {
-    locationPath.setAttribute("fill", "#4b6a9b");
+    locationPath.setAttribute("fill", "#4B6A9B");
     locationAddress.style.color = "#4b6a9b";
     locationAddress.textContent = `Not available`;
   } else {
@@ -75,7 +94,7 @@ async function renderData() {
 
     githubBlog.style.cursor = "pointer";
   }
-  if (userData.twitter_username === null) {
+  if (userData.twitter_username === null && themeSwitchBtn.checked === true) {
     tiwitterPath.setAttribute("fill", "#4b6a9b");
     twitter.style.color = "#4b6a9b";
     twitter.innerHTML = `Not available`;
